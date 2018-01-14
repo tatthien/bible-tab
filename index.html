@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bible Tab</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="dist/app.css">
+</head>
+<body>
+  <div id="app" class="wrapper">
+    <header>
+      <div class="settings">
+        <div class="settings__button">
+            <span @click.prevent="isShowSetting = !isShowSetting">Settings</span>
+        </div>
+        <div class="settings__popup" v-if="isShowSetting">
+          <form @change="saveSettings" ref="form_settings">
+            <div class="input-group">
+              <label for="bible_version">Bible version</label>
+              <select name="locale" id="bible_version" v-model="locale">
+                <option 
+                  v-for="locale in locales"
+                  :value="locale.key" 
+                  :key="locale.key" 
+                  v-text="locale.title"
+                ></option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="bible_interval">Duration</label>
+              <select name="interval" id="bible_interval" v-model="selectedInterval">
+                <option 
+                  v-for="item in interval"
+                  :value="item.time" 
+                  :key="item.time" 
+                  v-text="item.title"
+                ></option>
+              </select>
+              <p class="help-text">
+                The verse will change after a period of above time.
+              </p>
+            </div>
+
+            <p class="message" v-if="isShowSettingMessage">Your settings have been saved.</p>
+          </form>
+        </div>
+        <div class="settings__overlay" v-if="isShowSetting" @click.prevent="isShowSetting = false"></div>
+      </div>
+    </header>
+
+
+    <div class="verse">
+      <div class="verse__inner">
+        <div class="verse__content" id="js_verse_content" v-text="verseContent"></div>
+        <div class="verse__address" id="js_verse_address" v-text="verseAddress"></div>
+      </div>
+      <div class="verse__footer">
+        <nav>
+          <div class="left">
+            <a href="#" class="verse__copy" @click.prevent="copyVerse">
+              Copy
+              <span ref="copy_noti">Copied to clipboard</span>
+              <input :value="verseFull" v-if="isCopy" ref="copy_input">
+            </a>
+            <a :href="bibleChapterUrl">Read full chapter</a>
+          </div>
+          <div class="right">
+            <span>Share</span>
+            <span class="verse__social">
+              <a :href="facebookShareUrl" class="facebook" @click.prevent="openShareWindow($event)">Facebook</a>
+              <a :href="twitterShareUrl" class="twitter" @click.prevent="openShareWindow($event)">Twitter</a>
+            </span>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://twitter.com/tat_thien" target="_blank">@tat_thien</a>
+      <a href="https://github.com/tatthien/bible-tab-verses" target="_blank">Contribute</a>
+    </footer>
+  </div>
+
+  <script src="dist/app.js"></script>
+</body>
+</html>
