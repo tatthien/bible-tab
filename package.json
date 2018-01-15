@@ -2,7 +2,7 @@
   "name": "bible-tab",
   "version": "1.0.0",
   "description": "This extension will show a random Bible verse when you open a new tab.",
-  "main": "gulpfile.js",
+  "repository": "tatthien/bible-tab",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --watch",
     "build": "rm -rf dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
@@ -10,7 +10,8 @@
   "keywords": [],
   "author": {
     "name": "Thien Nguyen",
-    "email": "tatthien.contact@gmail.com"
+    "email": "tatthien.contact@gmail.com",
+    "url": "https://tatthien.com"
   },
   "license": "ISC",
   "devDependencies": {
