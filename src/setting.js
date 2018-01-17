@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   get: function (key, defaultValue) {
     let value = localStorage.getItem(key)

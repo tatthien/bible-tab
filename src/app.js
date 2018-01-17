@@ -1,3 +1,5 @@
+'use strict';
+
 import './app.scss'
 
 import Vue from 'vue'
