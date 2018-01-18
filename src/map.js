@@ -43,7 +43,7 @@ module.exports = {
   mat: { en: 'Matthew', vi: 'Ma-thi-ơ' },
   mrk: { en: 'Mark', vi: 'Mác' },
   luk: { en: 'Luke', vi: 'Lu-ca' },
-  jnh: { en: 'John', vi: 'Giăng' },
+  jhn: { en: 'John', vi: 'Giăng' },
   act: { en: 'Acts', vi: 'Công-vụ' },
   rom: { en: 'Romans', vi: 'Rô-ma' },
   '1co': { en: '1 Corinthians', vi: '1 Cô-rinh-tô' },

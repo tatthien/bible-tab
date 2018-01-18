@@ -19,7 +19,7 @@
           <form @change="saveSettings" ref="form_settings">
             <div class="input-group">
               <label for="bible_version">Bible version</label>
-              <select name="locale" id="bible_version" v-model="locale">
+              <select name="locale" id="bible_version" v-model="selectedLocale">
                 <option 
                   v-for="locale in locales"
                   :value="locale.key" 
@@ -62,9 +62,9 @@
             <a href="#" class="verse__copy" @click.prevent="copyVerse">
               Copy
               <span ref="copy_noti">Copied to clipboard</span>
-              <input :value="verseFull" v-if="isCopy" ref="copy_input">
+              <input :value="verseWithAdress" v-if="isCopy" ref="copy_input">
             </a>
-            <a :href="bibleChapterUrl">Read full chapter</a>
+            <a :href="chapterURL">Read full chapter</a>
           </div>
           <div class="right">
             <span>Share</span>

@@ -20,12 +20,11 @@ new Vue({
     },
     verseEndpoint: 'https://raw.githubusercontent.com/tatthien/bible-tab-verses/master/verses.json',
     verse: null,
-    locale: setting.get('locale', 'vi'),
+    selectedLocale: setting.get('locale', 'vi'),
     locales: [
       { key: 'vi', title: 'VB1925 - Vietnamese' },
       { key: 'en', title: 'NIV - English' }
     ],
-    mode: 'random',
     selectedInterval: setting.get('interval', 0),
     interval: [
       { time: 0, title: 'None' },
@@ -40,51 +39,51 @@ new Vue({
   },
   computed: {
     verseContent () {
-      return !this.verse ? '' : this.verse.content[this.locale]
-    },
-    verseBook () {
-      if (!this.verse) return ''
-      return map[this.verseCode] ? map[this.verseCode][this.locale] : ''
+      return !this.verse ? '' : this.verse.content[this.selectedLocale]
     },
     verseChapter () {
       return !this.verse ? '' : this.verse.chapter
     },
-    verseVerse () {
+    veserVerse () {
       return !this.verse ? '' : this.verse.verse
     },
     verseCode () {
       return !this.verse ? '' : this.verse.code.toLowerCase()
     },
-    verseAddress () {
-      return this.verseBook + ' ' + this.verseChapter + ':' + this.verseVerse
+    verseBook () {
+      if (!this.verse) return ''
+      return map[this.verseCode] ? map[this.verseCode][this.selectedLocale] : ''
     },
-    verseFull () {
+    verseAddress () {
+      return this.verseBook + ' ' + this.verseChapter + ':' + this.veserVerse
+    },
+    verseWithAdress () {
       return this.verseContent + ' - ' + this.verseAddress
     },
-    bibleChapterUrl () {
+    chapterURL () {
       let address = `${this.verseCode}.${this.verseChapter}`
-      if (this.locale === 'vi') {
+      if (this.selectedLocale === 'vi') {
         return `https://www.bible.com/bible/193/${address}.VB1925`
       } else {
         return `https://www.bible.com/bible/111/${address}.NIV`
       }
     },
-    bibleVerseUrl () {
-      let address = `${this.verseCode}.${this.verseChapter}.${this.verseVerse}`
-      if (this.locale === 'vi') {
-        return `https://www.bible.com/bible/193/${address}`
-      }
-      return `https://www.bible.com/bible/111/${address}`
+    verseURL () {
+      let address = `${this.verseCode}.${this.verseChapter}.${this.veserVerse}`
+      let url = this.selectedLocale === 'vi' 
+        ? `https://www.bible.com/bible/193/${address}`
+        : `https://www.bible.com/bible/111/${address}`
+
+      return url
     },
     facebookShareUrl () {
-      return `https://www.facebook.com/sharer/sharer.php?u=${this.bibleVerseUrl}`
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.verseURL}`
     },
     twitterShareUrl () {
-      return `https://twitter.com/home?status=${this.verseAddress} ${this.bibleVerseUrl}`
+      return `https://twitter.com/home?status=${this.verseAddress} ${this.verseURL}`
     }
   },
   created () {
-    console.log(map)
     if (this.selectedInterval == 0) {
       this.fetch()
     } else {
@@ -111,20 +110,22 @@ new Vue({
       fetch(this.verseEndpoint).then((response) => {
         return response.json()
       }).then((verses) => {
-        this.verse = verses[this.getRandomIndex(verses.length)]
+        this.verse = verses[this.getIndex(verses.length)]
         setting.set('cached_verse', JSON.stringify(this.verse))
+        
         // reset the time
         setting.set('cached_time', Date.now())
       })
     },
-    getRandomIndex (length) {
-      let index = Math.floor(Math.random(length) * Math.floor(length))
-      let cachedIndex = setting.get('cached_index')
-      if (index == cachedIndex) {
-        this.getRandomIndex(length)
+    getIndex (length) {
+      let cachedIndex = setting.get('cached_index', -1)
+      if (cachedIndex < length - 1) {
+        cachedIndex++
+      } else {
+        cachedIndex = 0
       }
-      setting.set('cached_index', index)
-      return index
+      setting.set('cached_index', cachedIndex)
+      return cachedIndex;
     },
     copyVerse () {
       this.isCopy = true
