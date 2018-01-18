@@ -1,4 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&subset=vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=vietnamese');
+
+/** Notie **/
+// Before notie is imported:
+$notie-color-success: rgb(89, 226, 89);
+$notie-color-warning: #D6A14D;
+$notie-color-error: #E1715B;
+$notie-color-info: #4D82D6;
+$notie-color-neutral: #A0A0A0;
+// See all overwriteable variables in src/notie.scss
+
+// Then import notie:
+@import '../node_modules/notie/src/notie';
+
+.notie-textbox {
+  font-size: 18px;
+  padding: 15px 20px;
+  font-weight: 600;
+}
 
 * {
   margin: 0;
@@ -40,20 +58,6 @@ body {
   }
   &__copy {
     position: relative;
-    span {
-      position: absolute;
-      font-size: .8rem;
-      left: 50%;
-      width: 130px;
-      text-align: center;
-      margin-left: -65px;
-      opacity: 0;
-      &.active {
-        animation-name: notification;
-        animation-duration: 1s;
-        animation-iteration-count: 1
-      }
-    }
   }
   &__footer {
     padding: 30px;
@@ -101,20 +105,6 @@ body {
     .twitter {
       background-color: #1da1f2;
     }
-  }
-}
-
-@keyframes notification {
-  0% {
-    opacity: 0;
-    top: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    top: -200%;
   }
 }
 

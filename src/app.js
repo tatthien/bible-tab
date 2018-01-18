@@ -5,7 +5,7 @@ import './app.scss'
 import Vue from 'vue'
 import setting from './setting'
 import map from './map'
-
+import notie from 'notie'
 new Vue({
   el: '#app',
   data: {
@@ -34,7 +34,6 @@ new Vue({
       { time: 24, title: '1 day' }
     ],
     isShowSetting: false,
-    isShowSettingMessage: false,
     isCopy: false
   },
   computed: {
@@ -137,11 +136,7 @@ new Vue({
         document.execCommand('Copy')
   
         // Show notification
-        let notification = this.$refs.copy_noti
-        notification.className = 'active'
-        setTimeout(function () {
-          notification.className = ''
-        }, 1000)
+        this.alert('✔ Copied to clipboard')
       
         this.isCopy = false
       })
@@ -162,10 +157,16 @@ new Vue({
       }
     
       // Show success message
-      this.isShowSettingMessage = true
-      setTimeout(() => {
-        this.isShowSettingMessage = false
-      }, 2000)
+      this.alert('✔ Your settings have been saved')
+    },
+    alert (msg, type = 1) {
+      notie.alert({
+        type: type,
+        text: msg,
+        stay: false,
+        time: 2,
+        position: 'top'
+      })
     }
   } 
 })
