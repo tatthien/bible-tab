@@ -14,11 +14,7 @@ new Vue({
         vi: 'Quyển sách luật-pháp nầy chớ xa miệng ngươi, hãy suy-gẫm ngày và đêm, hầu cho cẩn-thận làm theo mọi điều đã chép ở trong; vì như vậy ngươi mới được may-mắn trong con đường mình, và mới được phước.',
         en: 'Keep this Book of the Law always on your lips; meditate on it day and night, so that you may be careful to do everything written in it. Then you will be prosperous and successful.'
       },
-      book: {
-        vi: 'Giô-suê',
-        en: 'Joshua'
-      },
-      code: 'JOS',
+      code: 'jos',
       chapter: 1,
       verse: 8
     },
