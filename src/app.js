@@ -4,6 +4,7 @@ import './app.scss'
 
 import Vue from 'vue'
 import setting from './setting'
+import map from './map'
 
 new Vue({
   el: '#app',
@@ -46,7 +47,8 @@ new Vue({
       return !this.verse ? '' : this.verse.content[this.locale]
     },
     verseBook () {
-      return !this.verse ? '' : this.verse.book[this.locale]
+      if (!this.verse) return ''
+      return map[this.verseCode] ? map[this.verseCode][this.locale] : ''
     },
     verseChapter () {
       return !this.verse ? '' : this.verse.chapter
@@ -55,7 +57,7 @@ new Vue({
       return !this.verse ? '' : this.verse.verse
     },
     verseCode () {
-      return !this.verse ? '' : this.verse.code
+      return !this.verse ? '' : this.verse.code.toLowerCase()
     },
     verseAddress () {
       return this.verseBook + ' ' + this.verseChapter + ':' + this.verseVerse
@@ -86,6 +88,7 @@ new Vue({
     }
   },
   created () {
+    console.log(map)
     if (this.selectedInterval == 0) {
       this.fetch()
     } else {
