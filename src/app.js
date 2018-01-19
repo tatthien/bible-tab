@@ -35,6 +35,7 @@ new Vue({
     ],
     isShowSetting: false,
     isCopy: false,
+    delayRemain: '00:00:00'
   },
   computed: {
     verseContent () {
@@ -80,24 +81,6 @@ new Vue({
     },
     twitterShareUrl () {
       return `https://twitter.com/home?status=${this.verseAddress} ${this.verseURL}`
-    },
-    delayRemain () {
-      let currentTime = Date.now();
-      let cachedTime = setting.get('cached_time')
-      let diffSec = Math.floor((currentTime - cachedTime) / 1000 )
-      let remainSecond = this.selectedInterval * 60 * 60 - diffSec
-      let remainMin = Math.floor(remainSecond / 60)
-      let remainHour = Math.floor(remainMin / 60)
-
-      let hour = remainHour < 10 ? `0${remainHour}` : remainHour
-      
-      let min = Math.floor(remainSecond / 60 - remainHour * 60)
-      min = min < 10 ? `0${min}` : min
-      
-      let sec = Math.floor(remainSecond - remainMin * 60)
-      sec = sec < 10 ? `0${sec}` : sec
-
-      return `${hour}:${min}:${sec}`
     }
   },
   created () {
@@ -116,6 +99,8 @@ new Vue({
         this.verse = JSON.parse(setting.get('cached_verse'))
       }
     }
+    // Set the countdown
+    this.setDelayRemain()
   },
   watch: {
     selectedInterval () {
@@ -185,6 +170,27 @@ new Vue({
         time: 2,
         position: 'top'
       })
+    },
+    setDelayRemain () {
+      setInterval(() => {
+        let currentTime = Date.now()
+        let cachedTime = setting.get('cached_time')
+        let diffSec = Math.floor((currentTime - cachedTime) / 1000 )
+        let remainSecond = this.selectedInterval * 60 * 60 - diffSec
+
+        let remainMin = Math.floor(remainSecond / 60)
+        let remainHour = Math.floor(remainMin / 60)
+
+        let hour = remainHour < 10 ? `0${remainHour}` : remainHour
+        
+        let min = Math.floor(remainSecond / 60 - remainHour * 60)
+        min = min < 10 ? `0${min}` : min
+        
+        let sec = Math.floor(remainSecond - remainMin * 60)
+        sec = sec < 10 ? `0${sec}` : sec
+
+        this.delayRemain = `${hour}:${min}:${sec}`
+      }, 1000)
     }
   } 
 })
