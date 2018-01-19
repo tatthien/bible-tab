@@ -34,7 +34,7 @@ new Vue({
       { time: 24, title: '1 day' }
     ],
     isShowSetting: false,
-    isCopy: false
+    isCopy: false,
   },
   computed: {
     verseContent () {
@@ -80,6 +80,24 @@ new Vue({
     },
     twitterShareUrl () {
       return `https://twitter.com/home?status=${this.verseAddress} ${this.verseURL}`
+    },
+    delayRemain () {
+      let currentTime = Date.now();
+      let cachedTime = setting.get('cached_time')
+      let diffSec = Math.floor((currentTime - cachedTime) / 1000 )
+      let remainSecond = this.selectedInterval * 60 * 60 - diffSec
+      let remainMin = Math.floor(remainSecond / 60)
+      let remainHour = Math.floor(remainMin / 60)
+
+      let hour = remainHour < 10 ? `0${remainHour}` : remainHour
+      
+      let min = Math.floor(remainSecond / 60 - remainHour * 60)
+      min = min < 10 ? `0${min}` : min
+      
+      let sec = Math.floor(remainSecond - remainMin * 60)
+      sec = sec < 10 ? `0${sec}` : sec
+
+      return `${hour}:${min}:${sec}`
     }
   },
   created () {

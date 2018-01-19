@@ -29,6 +29,19 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+  font-size: 1rem;
+  z-index: 99999;
+}
+
 .wrapper {
   height: 100%;
   display: flex;
@@ -108,19 +121,16 @@ body {
   }
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: flex-end;
+.duration-noti {
   color: #fff;
-  font-size: 1rem;
-  z-index: 99999;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: right;
 }
 
+/*****************/
+/*** SETTINGS ***/
+/****************/
 .settings {
   &__button {
     text-align: right;

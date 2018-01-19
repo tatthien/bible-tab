@@ -49,28 +49,33 @@
     </header>
 
 
-    <div class="verse">
-      <div class="verse__inner">
-        <div class="verse__content" id="js_verse_content" v-text="verseContent"></div>
-        <div class="verse__address" id="js_verse_address" v-text="verseAddress"></div>
+    <div class="box">
+      <div class="verse">
+        <div class="verse__inner">
+          <div class="verse__content" id="js_verse_content" v-text="verseContent"></div>
+          <div class="verse__address" id="js_verse_address" v-text="verseAddress"></div>
+        </div>
+        <div class="verse__footer">
+          <nav>
+            <div class="left">
+              <a href="#" class="verse__copy" @click.prevent="copyVerse">
+                Copy
+                <input :value="verseWithAdress" v-if="isCopy" ref="copy_input">
+              </a>
+              <a :href="chapterURL">Read full chapter</a>
+            </div>
+            <div class="right">
+              <span>Share</span>
+              <span class="verse__social">
+                <a :href="facebookShareUrl" class="facebook" @click.prevent="openShareWindow($event)">Facebook</a>
+                <a :href="twitterShareUrl" class="twitter" @click.prevent="openShareWindow($event)">Twitter</a>
+              </span>
+            </div>
+          </nav>
+        </div>
       </div>
-      <div class="verse__footer">
-        <nav>
-          <div class="left">
-            <a href="#" class="verse__copy" @click.prevent="copyVerse">
-              Copy
-              <input :value="verseWithAdress" v-if="isCopy" ref="copy_input">
-            </a>
-            <a :href="chapterURL">Read full chapter</a>
-          </div>
-          <div class="right">
-            <span>Share</span>
-            <span class="verse__social">
-              <a :href="facebookShareUrl" class="facebook" @click.prevent="openShareWindow($event)">Facebook</a>
-              <a :href="twitterShareUrl" class="twitter" @click.prevent="openShareWindow($event)">Twitter</a>
-            </span>
-          </div>
-        </nav>
+      <div class="duration-noti" v-if="selectedInterval != 0">
+        New verse will appear after {{ delayRemain }}
       </div>
     </div>
 
