@@ -136,8 +136,11 @@ header {
     text-align: right;
     cursor: pointer;
     span:hover {
-      padding-bottom: 1px solid #fff;
-      border-bottom: 1px solid #fff;
+      opacity: .8;
+    }
+    img {
+      width: 20px;
+      height: auto;
     }
   }
   &__popup {
@@ -201,7 +204,8 @@ footer {
 }
 
 @media all and (max-width: 600px) {
-  .verse {
+  .verse,
+  .duration-noti {
     margin-left: 20px;
     margin-right: 20px;
   }
