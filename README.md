@@ -1,5 +1,38 @@
 # bible-tab
+
 This Chrome extension will show a random Bible verse when you open a new tab.
+
+## Contribute
+
+Firstly, I want to say thanks for you consideration of contribution. Please folow these steps below to contribute this project:
+
+### 1. Clone this project
+
+```
+https://github.com/tatthien/bible-tab.git
+```
+
+### 2. Load unpacked extension
+
+1. Go to `chrome://extensions/`
+2. Turn on the `Developer mode` 
+3. Click on the `Load unpacked extension...` button then select the project.
+
+### 3. Install depedencies and start the development
+
+```shell
+# Install depedencies
+yarn install
+
+# Start  the developement
+yarn dev
+```
+
+### 4. Build for production
+
+```shell
+yarn build
+```
 
 ## Helping Bible Tab by adding more verses.
 
