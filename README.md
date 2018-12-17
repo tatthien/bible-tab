@@ -9,7 +9,7 @@ Firstly, I want to say thanks for you consideration of contribution. Please foll
 ### 1. Clone this project
 
 ```
-https://github.com/tatthien/bible-tab.git
+git clone https://github.com/tatthien/bible-tab.git
 ```
 
 ### 2. Load unpacked extension
