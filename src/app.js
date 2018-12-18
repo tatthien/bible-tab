@@ -9,17 +9,7 @@ import notie from 'notie'
 new Vue({
   el: '#app',
   data: {
-    defaultVerse: {
-      content: {
-        vi: 'Quyển sách luật-pháp nầy chớ xa miệng ngươi, hãy suy-gẫm ngày và đêm, hầu cho cẩn-thận làm theo mọi điều đã chép ở trong; vì như vậy ngươi mới được may-mắn trong con đường mình, và mới được phước.',
-        en: 'Keep this Book of the Law always on your lips; meditate on it day and night, so that you may be careful to do everything written in it. Then you will be prosperous and successful.'
-      },
-      code: 'jos',
-      chapter: 1,
-      verse: 8
-    },
-    verseEndpoint: 'https://raw.githubusercontent.com/tatthien/bible-tab-verses/master/verses.json',
-    verse: null,
+    logos: {},
     selectedLocale: setting.get('locale', 'vi'),
     locales: [
       { key: 'vi', title: 'VB1925 - Vietnamese' },
@@ -38,49 +28,21 @@ new Vue({
     delayRemain: '00:00:00'
   },
   computed: {
-    verseContent () {
-      return !this.verse ? '' : this.verse.content[this.selectedLocale]
+    bookCode () {
+      return this.logos.address.replace(/(\d+:\d+-\d+$)|(\d+:\d+$)/, '').toLowerCase().trim()
     },
-    verseChapter () {
-      return !this.verse ? '' : this.verse.chapter
+    logosAddress () {
+      let bookText = map[this.logos.book - 1][this.selectedLocale]
+      return this.logos.address.toLowerCase().replace(this.bookCode, bookText)
     },
-    verseVerse () {
-      return !this.verse ? '' : this.verse.verse
-    },
-    verseCode () {
-      return !this.verse ? '' : this.verse.code.toLowerCase()
-    },
-    verseBook () {
-      if (!this.verse) return ''
-      return map[this.verseCode] ? map[this.verseCode][this.selectedLocale] : ''
-    },
-    verseAddress () {
-      return this.verseBook + ' ' + this.verseChapter + ':' + this.verseVerse
-    },
-    verseWithAddress () {
-      return this.verseContent + ' - ' + this.verseAddress
-    },
-    chapterURL () {
-      let address = `${this.verseCode}.${this.verseChapter}`
-      if (this.selectedLocale === 'vi') {
-        return `https://www.bible.com/bible/193/${address}.VB1925`
-      } else {
-        return `https://www.bible.com/bible/111/${address}.NIV`
-      }
-    },
-    verseURL () {
-      let address = `${this.verseCode}.${this.verseChapter}.${this.verseVerse}`
-      let url = this.selectedLocale === 'vi'
-        ? `https://www.bible.com/bible/193/${address}`
-        : `https://www.bible.com/bible/111/${address}`
-
-      return url
+    linkToChapter () {
+      return this.getBibleShareUrl()
     },
     facebookShareUrl () {
-      return `https://www.facebook.com/sharer/sharer.php?u=${this.verseURL}`
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.getBibleShareUrl(this.logos.verse)}`
     },
     twitterShareUrl () {
-      return `https://twitter.com/home?status=${this.verseAddress} ${this.verseURL}`
+      return `https://twitter.com/home?status=${this.verseAddress} ${this.getBibleShareUrl(this.logos.verse)}`
     }
   },
   created () {
@@ -96,7 +58,7 @@ new Vue({
       if (hourDiff > this.selectedInterval) {
         this.fetch()
       } else {
-        this.verse = JSON.parse(setting.get('cached_verse'))
+        this.logos = JSON.parse(setting.get('cached_verse'))
       }
     }
     // Set the countdown
@@ -109,25 +71,42 @@ new Vue({
   },
   methods: {
     fetch () {
-      fetch(this.verseEndpoint).then((response) => {
+      let endpoint = `https://open-logos.firebaseio.com/${this.getIndex()}.json?print=pretty`
+      fetch(endpoint).then((response) => {
         return response.json()
-      }).then((verses) => {
-        this.verse = verses[this.getIndex(verses.length)]
-        setting.set('cached_verse', JSON.stringify(this.verse))
+      }).then((verse) => {
+        this.logos = {
+          content: {
+            vi: verse.ScriptureVi,
+            en: verse.ScriptureEn
+          },
+          chapter: verse.Chapter,
+          verse: verse.Verse,
+          address: verse.Address,
+          book: verse.Book
+        }
+        setting.set('cached_verse', JSON.stringify(this.logos))
 
         // reset the time
         setting.set('cached_time', Date.now())
       })
     },
-    getIndex (length) {
+    getIndex () {
       let cachedIndex = setting.get('cached_index', -1)
-      if (cachedIndex < length - 1) {
+      if (cachedIndex < 524) {
         cachedIndex++
       } else {
-        cachedIndex = 0
+        cachedIndex = 1
       }
       setting.set('cached_index', cachedIndex)
       return cachedIndex;
+    },
+    getBibleShareUrl (verse = '') {
+      if (this.selectedLocale === 'vi') {
+        return `http://kinhthanh.cdnvn.com/doc-kinh-thanh/${this.bookCode}/${this.logos.chapter}?v=VI1934#${verse}`
+      } else {
+        return `http://kinhthanh.cdnvn.com/doc-kinh-thanh/${this.bookCode}/${this.logos.chapter}?v=NIV#${verse}`
+      }
     },
     copyVerse () {
       this.isCopy = true
