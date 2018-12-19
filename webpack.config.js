@@ -10,7 +10,7 @@ var webpackConfig = {
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'app.[contenthash].js'
+    filename: devMode ? 'app.js' : 'app.[contenthash].js'
   },
   module: {
     rules: [
