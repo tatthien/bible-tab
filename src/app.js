@@ -12,10 +12,10 @@ new Vue({
     logos: {},
     selectedLocale: setting.get('locale', 'vi'),
     locales: [
-      { key: 'vi', title: 'VB1925 - Vietnamese' },
-      { key: 'en', title: 'NIV - English' }
+      { key: 'vi', title: 'Vietnamese' },
+      { key: 'en', title: 'English' }
     ],
-    selectedInterval: setting.get('interval', 0),
+    selectedInterval: setting.get('interval', '0'),
     interval: [
       { time: 0, title: 'None' },
       { time: 1, title: '1 hour' },
@@ -25,7 +25,9 @@ new Vue({
     ],
     isShowSetting: false,
     isCopy: false,
-    delayRemain: '00:00:00'
+    delayRemain: '00:00:00',
+    theme: setting.get('theme', 'light'),
+    loaded: false
   },
   computed: {
     bookCode () {
@@ -63,6 +65,9 @@ new Vue({
     }
     // Set the countdown
     this.setDelayRemain()
+  },
+  mounted () {
+    this.loaded = true;
   },
   watch: {
     selectedInterval () {
@@ -118,7 +123,7 @@ new Vue({
         document.execCommand('Copy')
 
         // Show notification
-        this.alert('✔ Copied to clipboard')
+        this.alert('Copied to clipboard')
 
         this.isCopy = false
       })
@@ -139,7 +144,7 @@ new Vue({
       }
 
       // Show success message
-      this.alert('✔ Your settings have been saved')
+      this.alert('Your settings have been saved')
     },
     alert (msg, type = 1) {
       notie.alert({
@@ -147,8 +152,17 @@ new Vue({
         text: msg,
         stay: false,
         time: 2,
-        position: 'top'
+        position: 'bottom'
       })
+    },
+    changeTheme () {
+      if (this.theme === 'light') {
+        this.theme = 'dark'
+      } else {
+        this.theme = 'light'
+      }
+
+      setting.set('theme', this.theme)
     },
     setDelayRemain () {
       setInterval(() => {
