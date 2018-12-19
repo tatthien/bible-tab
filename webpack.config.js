@@ -3,12 +3,14 @@ const webpack = require('webpack')
 const devMode = process.env.NODE_ENV !== 'production'
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 var webpackConfig = {
   entry: './src/app.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: '/dist/',
-    filename: 'app.js'
+    publicPath: '/',
+    filename: 'app.[contenthash].js'
   },
   module: {
     rules: [
@@ -33,9 +35,20 @@ var webpackConfig = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'app.css',
+      filename: 'app.[contenthash].css',
       disable: process.env.NODE_ENV === 'development'
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      filename: 'index.html'
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'static'),
+        to: path.resolve(__dirname, 'dist'),
+        ignore: ['.*']
+      }
+    ])
   ],
   resolve: {
     alias: {
