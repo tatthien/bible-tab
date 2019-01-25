@@ -70,7 +70,7 @@
           <nav>
             <a href="#" class="verse__copy" @click.prevent="copyVerse">
               Copy
-              <input :value="logos.content" v-if="isCopy" ref="copy_input">
+              <input :value="logosContent + ' - ' + logosAddress" v-if="isCopy" ref="copy_input">
             </a>
             <a :href="linkToChapter">Read full chapter</a>
             <a href="">Share</a>
