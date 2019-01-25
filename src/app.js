@@ -44,7 +44,7 @@ new Vue({
       return `https://www.facebook.com/sharer/sharer.php?u=${this.getBibleShareUrl(this.logos.verse)}`
     },
     twitterShareUrl () {
-      return `https://twitter.com/home?status=${this.verseAddress} ${this.getBibleShareUrl(this.logos.verse)}`
+      return `https://twitter.com/intent/tweet?text=${this.logosAddress} ${this.getBibleShareUrl(this.logos.verse)}`
     }
   },
   created () {
@@ -135,7 +135,7 @@ new Vue({
     },
     saveSettings () {
       let form = this.$refs.form_settings
-      let fields = form.querySelectorAll('select, input, texarea')
+      let fields = form.querySelectorAll('select, input, textarea')
       for (let i = 0; i < fields.length; i++) {
         let field = fields[i]
         let name = field.name
