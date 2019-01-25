@@ -9,7 +9,7 @@ import notie from 'notie'
 new Vue({
   el: '#app',
   data: {
-    logos: {},
+    logos: null,
     selectedLocale: setting.get('locale', 'vi'),
     locales: [
       { key: 'vi', title: 'Vietnamese' },
@@ -31,13 +31,19 @@ new Vue({
   },
   computed: {
     bookCode () {
+      if (this.logos === null) return ''
       return this.logos.address.replace(/(\d+:\d+-\d+$)|(\d+:\d+$)/, '').toLowerCase().trim()
     },
+    logosContent () {
+      return this.logos !== null ? this.logos.content[this.selectedLocale] : ''
+    },
     logosAddress () {
+      if (this.logos === null) return ''
       let bookText = map[this.logos.book - 1][this.selectedLocale]
       return this.logos.address.toLowerCase().replace(this.bookCode, bookText)
     },
     linkToChapter () {
+      if (this.logos === null) return ''
       return this.getBibleShareUrl()
     },
     facebookShareUrl () {
