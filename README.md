@@ -4,7 +4,7 @@ This Chrome extension will show a random Bible verse when you open a new tab.
 
 ## Contribute
 
-Firstly, I want to say thanks for you consideration of contribution. Please follow these steps below to contribute this project:
+Firstly, I want to say thanks for your consideration of contribution. Please follow these steps below to contribute this project:
 
 ### 1. Clone this project
 
