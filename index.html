@@ -73,7 +73,8 @@
               <input :value="logosContent + ' - ' + logosAddress" v-if="isCopy" ref="copy_input">
             </a>
             <a :href="linkToChapter">Read full chapter</a>
-            <a href="">Share</a>
+            <a :href="facebookShareUrl" @click.prevent="openShareWindow">Share on Facebook</a>
+            <a :href="twitterShareUrl" @click.prevent="openShareWindow">Share on Twitter</a>
           </nav>
         </div>
       </div>

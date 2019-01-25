@@ -103,6 +103,7 @@ header {
   &__content {
     color: var(--color);
     position: relative;
+    line-height: 1.6;
     &:before {
       content: open-quote;
       color: var(--color);
@@ -110,7 +111,8 @@ header {
       font-size: 12rem;
       position: absolute;
       left: -10px;
-      top: 25px;
+      top: 50px;
+      line-height: 0;
     }
   }
   &__address {
