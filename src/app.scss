@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600');
 
 :root {
   --bg-color: #fff;
-  --color: #2c2c2c;
+  --color: #272C34;
   --link-color: #919191;
 }
 
 .dark {
-  --bg-color: #2c2c2c;
+  --bg-color: #272C34;
   --color: #f6f6f6;
 }
 
@@ -56,30 +56,43 @@ header {
 .switch-theme {
   margin-right: 15px;
   cursor: pointer;
-  &__icon {
-    display: block;
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 14px;
-    border-radius: 50px;
-    background-color: var(--color);
-    color: var(--bg-color);
-    overflow: hidden;
-    transition: all .3s;
-    span {
-      opacity: 0;
-      position: relative;
-      left: 5px;
-      transition: all .3s;
+  position: relative;
+  &__track {
+    width: 50px;
+    height: 24px;
+    padding: 0;
+    background-color: #0f1114;
+    border-radius: 30px;
+    display: flex;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 50%;
+      img {
+        width: 16px;
+        height: 16px;
+      }
     }
-    &:hover {
-      padding: 0 15px;
-      width: auto;
+    div:last-child {
+      img {
+        padding-right: 5px;
+      }
     }
-    &:hover span {
-      opacity: 1;
-      left: 0;
+  }
+  &__thumb {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(0.04, 1.15, 0.66, 0.99) 0ms
+  }
+  &--dark {
+    .switch-theme__thumb {
+      left: 27px;
     }
   }
 }
