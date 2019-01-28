@@ -47,9 +47,11 @@ new Vue({
       return this.getBibleShareUrl()
     },
     facebookShareUrl () {
+      if (this.logos === null) return ''
       return `https://www.facebook.com/sharer/sharer.php?u=${this.getBibleShareUrl(this.logos.verse)}`
     },
     twitterShareUrl () {
+      if (this.logos === null) return ''
       return `https://twitter.com/intent/tweet?text=${this.logosAddress} ${this.getBibleShareUrl(this.logos.verse)}`
     }
   },
