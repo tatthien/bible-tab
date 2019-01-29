@@ -1,6 +1,8 @@
-# bible-tab
+<p align="center"><a href="https://chrome.google.com/webstore/detail/bible-tab/kncfgmibnbpjiebgonkmpgdoaedjkaed" target="_blank"><img src="https://raw.githubusercontent.com/tatthien/bible-tab/master/static/images/icon-128.png"></a></p>
 
-This Chrome extension will show a random Bible verse when you open a new tab.
+<h1 align="center">Bible Tab</h1>
+
+<p align="center">This Chrome / Firefox extension will show a Bible verse everytime you open a new tab.</p>
 
 ## Contribute
 
