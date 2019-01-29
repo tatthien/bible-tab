@@ -4,6 +4,8 @@
 
 <p align="center">This Chrome / Firefox extension will show a Bible verse everytime you open a new tab.</p>
 
+[![Build Status](https://travis-ci.org/tatthien/bible-tab.svg?branch=master)](https://travis-ci.org/tatthien/bible-tab)
+
 ## Contribute
 
 Firstly, I want to say thanks for your consideration of contribution. Please follow these steps below to contribute this project:
