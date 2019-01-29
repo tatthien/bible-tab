@@ -9,6 +9,9 @@
 .dark {
   --bg-color: #272C34;
   --color: #f6f6f6;
+  .settings__button span {
+    background-color: #fff;
+  }
 }
 
 /** Notie **/
@@ -48,6 +51,7 @@ header {
   padding: 15px 30px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   color: #fff;
   font-size: 1rem;
   z-index: 99999;
@@ -193,26 +197,34 @@ header {
 .settings {
   position: relative;
   &__button {
-    text-align: right;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
     cursor: pointer;
-    span:hover {
-      opacity: .8;
-    }
-    svg g {
-      fill: var(--color);
+    span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--color);
     }
   }
   &__popup {
-    position: absolute;
+    position: fixed;
     right: 0;
-    margin-top: 15px;
+    top: 0;
+    bottom: 0;
     background-color: #fff;
     color: #2c2c2c;
     padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(#000, .2);
-    min-width: 300px;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.15);
+    width: 350px;
     z-index: 9999;
+    box-sizing: border-box;
     .input-group {
       margin-bottom: 15px;
       label {
@@ -248,6 +260,16 @@ header {
     bottom: 0;
     z-index: 999;
   }
+}
+
+.setting-slide-enter-active,
+.setting-slide-leave-active {
+  transition: right 0.4s cubic-bezier(0.04, 0.76, 0.58, 1) 0ms;
+}
+
+.setting-slide-enter, 
+.setting-slide-leave-to {
+  right: -350px;
 }
 
 @media all and (max-width: 600px) {
