@@ -2,16 +2,28 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
+  "imageSize": 80,
   "commit": false,
   "contributors": [
+    {
+      "login": "tatthien",
+      "name": "Thien Nguyen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3280351?s=460&v=4",
+      "profile": "https://tatthien.com",
+      "contributions": [
+        "code",
+        "bug",
+        "doc",
+      ]
+    },
     {
       "login": "ansidev",
       "name": "Le Minh Tri",
       "avatar_url": "https://avatars1.githubusercontent.com/u/6688235?v=4",
       "profile": "https://ansidev.xyz/",
       "contributions": [
-        "code"
+        "code",
+        "bug"
       ]
     },
     {
