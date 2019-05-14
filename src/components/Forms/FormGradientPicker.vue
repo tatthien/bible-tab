@@ -2,7 +2,7 @@
   <div class="relative" v-click-outside="() => showPicker = false">
     <span
       class="rounded-full block cursor-pointer border border-gray-500"
-      :style="{backgroundColor: selected, width: '35px', height: '35px'}"
+      :style="{backgroundImage: `linear-gradient(135deg, ${selected[0]} 0%, ${selected[1]} 100%)`, width: '35px', height: '35px'}"
       @click="showPicker = !showPicker"
     ></span>
     <transition name="slide-down">
@@ -14,13 +14,13 @@
         <li class="w-1/5 h-12 p-1 cursor-pointer" v-for="(color, index) in colors" :key="index">
           <span
             class="flex justify-center items-center block w-full h-full rounded-full border border-gray-400"
-            :style="{backgroundColor: color}"
+            :style="{backgroundImage: `linear-gradient(135deg, ${color[0]} 0%, ${color[1]} 100%)`}"
             @click="change(color)"
           >
             <span
               class="block rounded-full w-3 h-3"
-              :style="{backgroundColor: color === '#ffffff' ? '#000' : '#fff'}"
-              v-if="color === selected"
+              :style="{backgroundColor: '#fff'}"
+              v-if="color[0] === selected[0] && color[1] === selected[1]"
             ></span>
           </span>
         </li>
@@ -38,9 +38,9 @@ export default {
 	},
 	props: {
 		value: {
-			type: String,
+			type: Array,
 			default() {
-				return '#ffffff'
+				return ['#fff', '#fff']
 			},
 		},
 	},
@@ -49,31 +49,12 @@ export default {
 			showPicker: false,
 			selected: this.value,
 			colors: [
-				'#000000',
-				'#ffffff',
-				'#3e6158',
-				'#3f7a89',
-				'#96c582',
-				'#b7d5c4',
-				'#bcd6e7',
-				'#7c90c1',
-				'#9d8594',
-				'#dad0d8',
-				'#4b4fce',
-				'#4e0a77',
-				'#a367b5',
-				'#ee3e6d',
-				'#d63d62',
-				'#c6a670',
-				'#f46600',
-				'#cf0500',
-				'#efabbd',
-				'#8e0622',
-				'#f0b89a',
-				'#f0ca68',
-				'#62382f',
-				'#c97545',
-				'#c1800b',
+				['#08AEEA', '#2AF598'],
+				['#FEE140', '#FA709A'],
+				['#85FFBD', '#FFFB7D'],
+				['#a1c4fd', '#c2e9fb'],
+				['#e9defa', '#fbfcdb'],
+				['#00c6fb', '#005bea'],
 			],
 		}
 	},

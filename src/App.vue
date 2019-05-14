@@ -30,7 +30,7 @@
                   class="flex justify-between items-center px-5 py-3 border-gray-800 border-b"
                 >
                   <label for="color-picker">Select background color</label>
-                  <form-color-picker v-model="settings.backgroundColor"></form-color-picker>
+                  <form-gradient-picker v-model="settings.backgroundColor"></form-gradient-picker>
                 </li>
                 <li
                   v-if="!settings.useBackground"
@@ -77,6 +77,7 @@ import Bible from '@/components/Bible.vue'
 import FormSwitch from '@/components/Forms/FormSwitch.vue'
 import FormSelect from '@/components/Forms/FormSelect.vue'
 import FormColorPicker from '@/components/Forms/FormColorPicker.vue'
+import FormGradientPicker from '@/components/Forms/FormGradientPicker.vue'
 import DateTime from '@/components/DateTime.vue'
 import UnsplashImage from '@/components/Unsplash/UnsplashImage.vue'
 import UnsplashImageAuthor from '@/components/Unsplash/UnsplashImageAuthor.vue'
@@ -88,6 +89,7 @@ export default {
 		FormSwitch,
 		FormSelect,
 		FormColorPicker,
+		FormGradientPicker,
 		DateTime,
 		UnsplashImage,
 		UnsplashImageAuthor,
@@ -176,14 +178,17 @@ export default {
 			return this.settings.textColor
 		},
 		backgroundColor() {
-			if (this.settings.useBackground) {
-				return 'transparent'
-			}
 			return this.settings.backgroundColor
 		},
 		themeStyle() {
+			if (this.settings.useBackground) {
+				return {
+					backgroundColor: 'transparent',
+					color: this.textColor,
+				}
+			}
 			return {
-				backgroundColor: this.backgroundColor,
+				backgroundImage: `linear-gradient(135deg, ${this.backgroundColor[0]} 0%, ${this.backgroundColor[1]} 100%)`,
 				color: this.textColor,
 			}
 		},
