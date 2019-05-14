@@ -27,7 +27,8 @@
       "profile": "https://ansidev.xyz/",
       "contributions": [
         "code",
-        "doc"
+        "doc",
+        "bug"
       ]
     }
   ],
