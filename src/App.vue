@@ -10,7 +10,6 @@
           <div class="relative" v-click-outside="() => showSettings = false">
             <span class="flex items-center cursor-pointer" @click="showSettings = !showSettings">
               <icon-gear :scale="1.5" :fill="textColor"></icon-gear>
-              <span class="ml-1">Settings</span>
             </span>
             <transition name="show-settings">
               <ul
