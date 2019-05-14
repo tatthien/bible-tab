@@ -56,7 +56,6 @@ export default new Vuex.Store({
 			commit(SET_INITIALIZE, value)
 		},
 		[SET_SETTINGS]({ commit }, settings) {
-			console.log(settings)
 			commit(SET_SETTINGS, settings)
 			commit(SET_INITIALIZE, true)
 		},
