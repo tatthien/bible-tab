@@ -6,6 +6,7 @@ import subDay from 'date-fns/sub_days'
 
 Vue.use(Vuex)
 
+const SET_INITIALIZE = 'SET_INITIALIZE'
 const SET_SETTINGS = 'SET_SETTINGS'
 const SET_SCRIPTURE_INDEX = 'SET_SCRIPTURE_INDEX'
 const GET_SCRIPTURE = 'GET_SCRIPTURE'
@@ -35,6 +36,7 @@ let yesterday = format(subDay(new Date(), 1), 'DD-MM-YYYY')
 
 export default new Vuex.Store({
 	state: {
+		initialize: localStorage.getItem('bibletab_initialize') || false,
 		settings: localStorage.getItem('bibletab_settings') ? JSON.parse(localStorage.getItem('bibletab_settings')) : defaultSettings,
 		scripture: localStorage.getItem('bibletab_scripture') ? JSON.parse(localStorage.getItem('bibletab_scripture')) : defaultScripture,
 		scriptureIndex: localStorage.getItem('bibletab_scripture_index') || 1,
@@ -42,6 +44,7 @@ export default new Vuex.Store({
 		background: localStorage.getItem(`bibletab_background_${today}`) ? JSON.parse(localStorage.getItem(`bibletab_background_${today}`)) : null,
 	},
 	getters: {
+		initialize: state => state.initialize,
 		settings: state => state.settings,
 		scripture: state => state.scripture,
 		scriptureIndex: state => state.scriptureIndex,
@@ -49,8 +52,13 @@ export default new Vuex.Store({
 		background: state => state.background,
 	},
 	actions: {
+		[SET_INITIALIZE]({ commit }, value) {
+			commit(SET_INITIALIZE, value)
+		},
 		[SET_SETTINGS]({ commit }, settings) {
+			console.log(settings)
 			commit(SET_SETTINGS, settings)
+			commit(SET_INITIALIZE, true)
 		},
 		[GET_SCRIPTURE]({ commit }, index) {
 			axios
@@ -95,6 +103,10 @@ export default new Vuex.Store({
 		},
 	},
 	mutations: {
+		[SET_INITIALIZE](state, value) {
+			state.initialize = value
+			localStorage.setItem('bibletab_initialize', value)
+		},
 		[SET_SETTINGS](state, settings) {
 			state.settings = settings
 			localStorage.setItem('bibletab_settings', JSON.stringify(settings))

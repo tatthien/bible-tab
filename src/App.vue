@@ -100,6 +100,11 @@ export default {
 		UnsplashImageAuthor,
 	},
 	created() {
+		// Save settings when run the extension for the first time.
+		if (!this.$store.getters.initialize) {
+			this.$store.dispatch('SET_SETTINGS', this.settings)
+		}
+
 		if (this.isNextRequest) {
 			this.$store.dispatch('GET_SCRIPTURE', this.scriptureIndex)
 		}
