@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="h-full">
     <unsplash-image v-if="settings.useBackground"></unsplash-image>
-    <div class="relative z-20 flex flex-col justify-between h-full" :style="themeStyle">
+    <div class="relative z-20 flex flex-col justify-between h-full text-base" :style="themeStyle">
       <header class="flex justify-between px-5 py-5">
         <div>
           <date-time v-if="settings.showDate"></date-time>
