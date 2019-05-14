@@ -7,7 +7,7 @@
     ></span>
     <transition name="slide-down">
       <ul
-        class="absolute mt-2 flex flex-wrap bg-white right-0 z-50 rounded-lg p-2"
+        class="absolute mt-2 flex flex-wrap bg-white right-0 z-50 rounded-lg p-2 shadow-lg"
         v-if="showPicker"
         style="width: 256px;"
       >
