@@ -14,38 +14,32 @@
             <transition name="show-settings">
               <ul
                 v-if="showSettings"
-                class="bg-black text-white list-reset absolute mt-4 pin-r rounded-lg"
+                class="bg-black text-white absolute mt-4 right-0 rounded-lg shadow-lg"
                 style="width: 400px"
               >
-                <li
-                  class="flex justify-between items-center px-5 py-3 border-grey-darkest border-b"
-                >
+                <li class="flex justify-between items-center px-5 py-3 border-gray-800 border-b">
                   <label for="show-date">Show date</label>
                   <form-switch v-model="settings.showDate"></form-switch>
                 </li>
-                <li
-                  class="flex justify-between items-center px-5 py-3 border-grey-darkest border-b"
-                >
+                <li class="flex justify-between items-center px-5 py-3 border-gray-800 border-b">
                   <label for="use-background">Background image</label>
                   <form-switch v-model="settings.useBackground"></form-switch>
                 </li>
                 <li
                   v-if="!settings.useBackground"
-                  class="flex justify-between items-center px-5 py-3 border-grey-darkest border-b"
+                  class="flex justify-between items-center px-5 py-3 border-gray-800 border-b"
                 >
                   <label for="color-picker">Select background color</label>
                   <form-color-picker v-model="settings.backgroundColor"></form-color-picker>
                 </li>
                 <li
                   v-if="!settings.useBackground"
-                  class="flex justify-between items-center px-5 py-3 border-grey-darkest border-b"
+                  class="flex justify-between items-center px-5 py-3 border-gray-800 border-b"
                 >
                   <label for="color-picker">Select text color</label>
                   <form-color-picker v-model="settings.textColor"></form-color-picker>
                 </li>
-                <li
-                  class="flex justify-between items-center px-5 py-3 border-grey-darkest border-b"
-                >
+                <li class="flex justify-between items-center px-5 py-3 border-gray-800 border-b">
                   <label for="change-verse">Change verse after</label>
                   <form-select
                     id="change-verse"

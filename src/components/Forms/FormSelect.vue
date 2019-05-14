@@ -15,11 +15,11 @@
     </span>
     <transition name="slide-down">
       <ul
-        class="list-reset bg-white absolute w-full mt-2 rounded border border-grey-darker overflow-hidden z-50"
+        class="bg-white absolute w-full mt-2 rounded overflow-hidden z-50 shadow-lg"
         v-show="showDropdown"
       >
         <li
-          :class="[option.value === selected ? 'text-green-light font-bold' : '', 'px-4 py-2 cursor-pointer hover:bg-green-light hover:text-black']"
+          :class="[option.value === selected ? 'text-green-light font-bold' : '', 'px-4 py-2 cursor-pointer hover:bg-green-500 hover:text-black']"
           v-for="option in options"
           :key="option.value"
           v-text="option.label"
@@ -59,9 +59,7 @@ export default {
 	data() {
 		return {
 			selected: this.value,
-			selectedLabel: this.options.filter(
-				option => option.value === this.value
-			)[0].label,
+			selectedLabel: this.options.filter(option => option.value === this.value)[0].label,
 			showDropdown: false,
 		}
 	},
