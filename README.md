@@ -47,7 +47,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="http://tatthien.com"><img src="https://avatars1.githubusercontent.com/u/3280351?v=4" width="80px;" alt="Thien Nguyen"/><br /><sub><b>Thien Nguyen</b></sub></a><br /><a href="https://github.com/tatthien/Bible Tab/commits?author=tatthien" title="Documentation">📖</a></td></tr></table>
+<table><tr><td align="center"><a href="http://tatthien.com"><img src="https://avatars1.githubusercontent.com/u/3280351?v=4" width="80px;" alt="Thien Nguyen"/><br /><sub><b>Thien Nguyen</b></sub></a><br /><a href="https://github.com/tatthien/Bible Tab/commits?author=tatthien" title="Documentation">📖</a> <a href="https://github.com/tatthien/Bible Tab/commits?author=tatthien" title="Code">💻</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
