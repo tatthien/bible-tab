@@ -65,7 +65,7 @@
       </main>
       <footer class="flex justify-between px-5 py-5">
         <div>
-          <unsplash-image-author></unsplash-image-author>
+          <unsplash-image-author v-if="settings.useBackground"></unsplash-image-author>
         </div>
       </footer>
     </div>
