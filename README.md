@@ -1,4 +1,5 @@
 <p align="center"><a href="https://chrome.google.com/webstore/detail/bible-tab/kncfgmibnbpjiebgonkmpgdoaedjkaed" target="_blank"><img src="https://raw.githubusercontent.com/tatthien/bible-tab/master/public/img/icon-128.png"></a></p>
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
  <h1 align="center">Bible Tab</h1>	
  
@@ -39,3 +40,15 @@ Once you feel happy with how it looks, run `yarn build` and load source of exten
 1. Go to `chrome://extensions/`.	
 2. Turn on the `Developer mode`.	
 3. Click on the `Load unpacked extension...` button then select the folder `dist` from project.
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="http://tatthien.com"><img src="https://avatars1.githubusercontent.com/u/3280351?v=4" width="80px;" alt="Thien Nguyen"/><br /><sub><b>Thien Nguyen</b></sub></a><br /><a href="https://github.com/tatthien/Bible Tab/commits?author=tatthien" title="Documentation">📖</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
