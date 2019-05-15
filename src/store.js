@@ -88,7 +88,7 @@ export default new Vuex.Store({
 						h: 1080,
 						crop: 'entropy',
 						auto: 'format',
-						q: 80,
+						q: 70,
 						fm: 'jpg',
 						fit: 'crop',
 					},

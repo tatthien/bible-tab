@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="h-full">
-    <unsplash-image v-if="settings.useBackground"></unsplash-image>
+    <unsplash-image v-show="settings.useBackground"></unsplash-image>
     <div class="relative z-20 flex flex-col justify-between h-full text-base" :style="themeStyle">
       <header class="flex justify-between px-5 py-5">
         <div>
@@ -219,6 +219,11 @@ body {
 	min-height: 100%;
 	overflow: hidden;
 	background: #fff;
+}
+
+header,
+footer {
+	min-height: 90px;
 }
 
 .show-settings-enter-active,
