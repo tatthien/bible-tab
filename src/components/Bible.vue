@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import books from '@/book'
-import bookAbbr from '@/book-abbr'
+import books from '@/books'
+import booksAbbr from '@/books-abbr'
 import { setTimeout } from 'timers'
 export default {
 	name: 'bible',
@@ -108,7 +108,7 @@ export default {
 		},
 		readChapterUrl() {
 			let version = this.settings.bibleLanguage === 'vi' ? 193 : 111
-			return `https://bible.com/bible/${version}/${bookAbbr[this.scripture.Book - 1]}.${this.chapter}`
+			return `https://bible.com/bible/${version}/${booksAbbr[this.scripture.Book - 1]}.${this.chapter}`
 		},
 	},
 	methods: {

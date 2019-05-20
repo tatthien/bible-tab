@@ -1,3 +1,4 @@
+/* The abbreviation of Bible books are following the convention from Bible.com */
 export default [
 	'gen',
 	'exo',
