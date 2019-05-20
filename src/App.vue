@@ -1,20 +1,20 @@
 <template>
   <div id="app" class="h-full">
     <unsplash-image v-show="settings.useBackground"></unsplash-image>
-    <div class="relative z-20 flex flex-col justify-between h-full text-base" :style="themeStyle">
-      <header class="flex justify-between px-5 py-5">
+    <div class="relative z-20 h-full text-base" :style="themeStyle">
+      <header class="fixed left-0 right-0 flex justify-between px-5 py-5">
         <div>
           <date-time v-if="settings.showDate"></date-time>
         </div>
         <div>
           <div class="relative" v-click-outside="() => showSettings = false">
             <span class="flex items-center cursor-pointer" @click="showSettings = !showSettings">
-              <icon-gear :scale="1.5" :fill="textColor"></icon-gear>
+              <feather-icon icon="settings" :color="textColor"></feather-icon>
             </span>
-            <transition name="show-settings">
+            <transition name="slide-down">
               <ul
                 v-if="showSettings"
-                class="bg-black text-white absolute mt-4 right-0 rounded-lg shadow-lg"
+                class="bg-black text-white absolute mt-2 right-0 rounded-lg shadow-lg"
                 style="width: 400px"
               >
                 <li class="flex justify-between items-center px-5 py-3 border-gray-800 border-b">
@@ -60,10 +60,10 @@
           </div>
         </div>
       </header>
-      <main class="text-center">
+      <main class="h-full flex flex-col justify-center">
         <bible :scripture="scripture"></bible>
       </main>
-      <footer class="flex justify-between px-5 py-5">
+      <footer class="fixed left-0 right-0 bottom-0 flex items-center justify-between px-5 py-5">
         <div>
           <unsplash-image-author v-if="settings.useBackground"></unsplash-image-author>
         </div>
@@ -98,6 +98,7 @@ export default {
 		// Save settings when run the extension for the first time.
 		if (!this.$store.getters.initialize) {
 			this.$store.dispatch('SET_SETTINGS', this.settings)
+			this.$store.dispatch('SET_NEXT_REQUEST')
 		}
 
 		if (this.isNextRequest) {
@@ -221,20 +222,15 @@ body {
 	background: #fff;
 }
 
-header,
-footer {
-	min-height: 90px;
-}
-
-.show-settings-enter-active,
-.show-settings-leave-active {
+.slide-down-enter-active,
+.slide-down-leave-active {
 	transition: 0.3s all;
 	opacity: 1;
-	margin-top: 1rem;
+	margin-top: 0.5rem;
 }
 
-.show-settings-enter,
-.show-settings-leave-to {
+.slide-down-enter,
+.slide-down-leave-to {
 	opacity: 0;
 	margin-top: 0;
 }

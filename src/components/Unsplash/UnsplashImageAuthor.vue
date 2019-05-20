@@ -1,5 +1,10 @@
 <template>
-  <a :href="imageLink" target="_blank" class="block no-underline" :style="{ color: textColor }">
+  <a
+    :href="imageLink"
+    target="_blank"
+    class="block no-underline opacity-70 hover:opacity-100"
+    :style="{ color: textColor }"
+  >
     <p v-text="imageDescription"></p>
     <p>
       Photo by

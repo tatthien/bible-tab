@@ -1,6 +1,4 @@
 import Vue from 'vue'
-import IconArrowDown from './IconArrowDown.vue'
-import IconGear from './IconGear.vue'
+import FeatherIcon from './FeatherIcon.vue'
 
-Vue.component('icon-arrow-down', IconArrowDown)
-Vue.component('icon-gear', IconGear)
+Vue.component('feather-icon', FeatherIcon)

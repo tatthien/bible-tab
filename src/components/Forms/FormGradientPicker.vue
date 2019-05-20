@@ -40,7 +40,7 @@ export default {
 		value: {
 			type: Array,
 			default() {
-				return ['#fff', '#fff']
+				return ['#08AEEA', '#2AF598']
 			},
 		},
 	},
@@ -66,18 +66,3 @@ export default {
 	},
 }
 </script>
-
-<style lang="scss" scoped>
-.slide-down-enter-active,
-.slide-down-leave-active {
-	transition: 0.3s all;
-	opacity: 1;
-	margin-top: 0.5rem;
-}
-
-.slide-down-enter,
-.slide-down-leave-to {
-	opacity: 0;
-	margin-top: 0;
-}
-</style>

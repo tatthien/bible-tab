@@ -5,9 +5,7 @@ Vue.directive('click-outside', {
 	bind(el, binding, vNode) {
 		if (typeof binding.value !== 'function') {
 			const compName = vNode.context.name
-			let warn = `[vue click outside] provided expression '${
-				binding.expression
-			}' is not a function.`
+			let warn = `[vue click outside] provided expression '${binding.expression}' is not a function.`
 
 			if (compName) warn += `Found in component '${compName}'`
 

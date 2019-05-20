@@ -1,10 +1,10 @@
 <template>
   <span
-    :class="[isChecked ? 'bg-green-500' : '', 'bg-gray-500 rounded-full relative cursor-pointer transition']"
+    :class="[isChecked ? 'bg-indigo-700' : '', 'bg-gray-500 rounded-full relative cursor-pointer transition']"
     style="width: 42px; height: 25px;"
     @click="change"
   >
-    <span class="absolute bg-white rounded-full transition" :style="styles"></span>
+    <span class="absolute bg-white rounded-full transition shadow-md" :style="styles"></span>
   </span>
 </template>
 

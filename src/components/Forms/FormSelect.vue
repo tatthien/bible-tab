@@ -5,13 +5,13 @@
     v-click-outside="() => showDropdown = false"
   >
     <input
-      class="bg-white px-4 py-1 inline-block w-full rounded cursor-pointer outline-none hover:bg-grey-lightest"
+      class="bg-white px-4 py-1 inline-block w-full rounded cursor-pointer outline-none hover:bg-gray-200"
       readonly="readonly"
       @click="showDropdown = !showDropdown"
       :value="this.selectedLabel"
     >
-    <span class="absolute" style="right: 10px; top: 50%; margin-top: -8px;">
-      <icon-arrow-down></icon-arrow-down>
+    <span class="absolute top-1/2 right-3" style="margin-top: -9px;">
+      <feather-icon icon="arrow-down" :scale="0.75"></feather-icon>
     </span>
     <transition name="slide-down">
       <ul
@@ -19,7 +19,7 @@
         v-show="showDropdown"
       >
         <li
-          :class="[option.value === selected ? 'text-green-light font-bold' : '', 'px-4 py-2 cursor-pointer hover:bg-green-500 hover:text-black']"
+          :class="[option.value === selected ? 'text-green-light font-bold' : '', 'px-4 py-2 cursor-pointer hover:bg-indigo-700 hover:text-white']"
           v-for="option in options"
           :key="option.value"
           v-text="option.label"
@@ -74,17 +74,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.slide-down-enter-active,
-.slide-down-leave-active {
-	transition: 0.3s all;
-	opacity: 1;
-	margin-top: 0.5rem;
-}
-
-.slide-down-enter,
-.slide-down-leave-to {
-	opacity: 0;
-	margin-top: 0;
-}
-</style>

@@ -16,7 +16,7 @@ const GET_BACKGROUND_IMAGE = 'GET_BACKGROUND_IMAGE'
 let defaultSettings = {
 	showDate: true,
 	useBackground: true,
-	backgroundColor: '#fff',
+	backgroundColor: ['#08AEEA', '#2AF598'],
 	textColor: '#000',
 	changeVerse: '15',
 	bibleLanguage: 'en',
@@ -40,7 +40,7 @@ export default new Vuex.Store({
 		settings: localStorage.getItem('bibletab_settings') ? JSON.parse(localStorage.getItem('bibletab_settings')) : defaultSettings,
 		scripture: localStorage.getItem('bibletab_scripture') ? JSON.parse(localStorage.getItem('bibletab_scripture')) : defaultScripture,
 		scriptureIndex: localStorage.getItem('bibletab_scripture_index') || 1,
-		nextRequest: localStorage.getItem('bibletab_next_request') || Math.round(Date.now() / 1000),
+		nextRequest: localStorage.getItem('bibletab_next_request') || null,
 		background: localStorage.getItem(`bibletab_background_${today}`) ? JSON.parse(localStorage.getItem(`bibletab_background_${today}`)) : null,
 	},
 	getters: {
