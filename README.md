@@ -34,13 +34,22 @@ yarn serve
 
 By hitting `yarn serve`, you're able to visit http://localhost:8080 and see all the changes with HRM.
 
-### 3. Load unpacked extension
+### 3. Temporary intallation.
 
 Once you feel happy with how it looks, run `yarn build` and load source of extension in folder `dist`.
 
+For Google Chrome:
+
 1. Go to `chrome://extensions/`.
 2. Turn on the `Developer mode`.
-3. Click on the `Load unpacked extension...` button then select the folder `dist` from project.
+3. Click on the `Load unpacked` button.
+4. Browse and select the folder `dist` from project.
+
+For FireFox:
+
+1. Go go `about:debugging#addons`
+2. Click on the `Load Temporary Add-on` button.
+3. Browse and select any file in the folder `dist` from project.
 
 ## Contributors
 
