@@ -2,7 +2,7 @@
 
 <h1 align="center">Bible Tab</h1>
 
-<p align="center">Bible Tab is a browser extension to show a Bible verse everytime you open a new tab.</p>
+<p align="center">Bible Tab is a browser extension for Chrome and Firefox to show a Bible verse everytime you open a new tab.</p>
 
 [![Build Status](https://travis-ci.org/tatthien/bible-tab.svg?branch=master)](https://travis-ci.org/tatthien/bible-tab)
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg)](#contributors)
