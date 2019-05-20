@@ -5,7 +5,9 @@
 <p align="center">The Google Chrome / Firefox extension will show a Bible verse everytime you open a new tab.</p>
 
 [![Build Status](https://travis-ci.org/tatthien/bible-tab.svg?branch=master)](https://travis-ci.org/tatthien/bible-tab)
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg)](#contributors)
+
+![Screen Shot 2019-05-16 at 10 23 45 AM](https://user-images.githubusercontent.com/3280351/57824350-ffc66c00-77c4-11e9-896a-267bba483526.png)
 
 ## Contribute
 
@@ -46,7 +48,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="http://tatthien.com"><img src="https://avatars1.githubusercontent.com/u/3280351?v=4" width="80px;" alt="Thien Nguyen"/><br /><sub><b>Thien Nguyen</b></sub></a><br /><a href="https://github.com/tatthien/Bible Tab/commits?author=tatthien" title="Documentation">📖</a> <a href="https://github.com/tatthien/Bible Tab/commits?author=tatthien" title="Code">💻</a></td><td align="center"><a href="https://ansidev.xyz/"><img src="https://avatars1.githubusercontent.com/u/6688235?v=4" width="80px;" alt="Le Minh Tri"/><br /><sub><b>Le Minh Tri</b></sub></a><br /><a href="https://github.com/tatthien/Bible Tab/commits?author=ansidev" title="Code">💻</a> <a href="https://github.com/tatthien/Bible Tab/commits?author=ansidev" title="Documentation">📖</a> <a href="https://github.com/tatthien/Bible Tab/issues?q=author%3Aansidev" title="Bug reports">🐛</a></td><td align="center"><a href="https://github.com/nampdn"><img src="https://avatars3.githubusercontent.com/u/26531658?v=4" width="80px;" alt="Noah Phom"/><br /><sub><b>Noah Phom</b></sub></a><br /><a href="https://github.com/tatthien/Bible Tab/commits?author=nampdn" title="Code">💻</a></td></tr></table>
+<table><tr><td align="center"><a href="http://tatthien.com"><img src="https://avatars1.githubusercontent.com/u/3280351?v=4" width="80px;" alt="Thien Nguyen"/><br /><sub><b>Thien Nguyen</b></sub></a><br /><a href="https://github.com/tatthien/bible-tab/commits?author=tatthien" title="Documentation">📖</a> <a href="https://github.com/tatthien/bible-tab/commits?author=tatthien" title="Code">💻</a></td><td align="center"><a href="https://ansidev.xyz/"><img src="https://avatars1.githubusercontent.com/u/6688235?v=4" width="80px;" alt="Le Minh Tri"/><br /><sub><b>Le Minh Tri</b></sub></a><br /><a href="https://github.com/tatthien/bible-tab/commits?author=ansidev" title="Code">💻</a> <a href="https://github.com/tatthien/bible-tab/commits?author=ansidev" title="Documentation">📖</a> <a href="https://github.com/tatthien/bible-tab/issues?q=author%3Aansidev" title="Bug reports">🐛</a></td><td align="center"><a href="https://github.com/nampdn"><img src="https://avatars3.githubusercontent.com/u/26531658?v=4" width="80px;" alt="Noah Phom"/><br /><sub><b>Noah Phom</b></sub></a><br /><a href="https://github.com/tatthien/bible-tab/commits?author=nampdn" title="Code">💻</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
