@@ -7,7 +7,7 @@
         :style="{ backgroundImage: `url(${backgroundUrl})` }"
       ></div>
     </transition>
-    <div class="absolute top-0 right-0 bottom-0 left-0 opacity-30 bg-black"></div>
+    <div class="absolute top-0 right-0 bottom-0 left-0 opacity-40 bg-black"></div>
   </div>
 </template>
 
