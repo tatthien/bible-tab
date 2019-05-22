@@ -1,10 +1,10 @@
 <template>
-  <div class="text-5xl container mx-auto text-center">
-    <blockquote class="mb-4 leading-tight px-8">
+  <div class="text-5xl container mx-auto">
+    <blockquote class="mb-6 leading-snug font-serif">
       <p v-text="content"></p>
     </blockquote>
-    <div class="flex items-center justify-center">
-      <cite>
+    <div class="flex items-center">
+      <cite class="not-italic text-2xl">
         <a
           :href="readChapterUrl"
           v-text="address"
