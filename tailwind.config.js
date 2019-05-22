@@ -25,6 +25,9 @@ module.exports = {
 			'90': '.9',
 			'100': '1',
 		},
+		fontFamily: {
+			serif: ['Lora', 'serif'],
+		},
 	},
 	variants: {
 		display: ['group-hover'],

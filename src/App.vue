@@ -210,6 +210,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700,400i,700i&display=swap&subset=vietnamese');
 @import './assets/scss/main.scss';
 
 html,
