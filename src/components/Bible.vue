@@ -30,7 +30,8 @@
         <transition name="slide-down">
           <ul
             v-if="showDropdown"
-            class="absolute top-full mt-2 left-4 bg-white rounded text-base shadow-lg"
+            class="absolute overflow-hidden top-full mt-2 left-4 bg-white rounded text-base shadow-lg"
+						style="min-width: 160px"
           >
             <li
               v-for="(action, key) in actions"
