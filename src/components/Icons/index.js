@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import FeatherIcon from './FeatherIcon.vue'
+import Vue from 'vue';
+import FeatherIcon from './FeatherIcon.vue';
 
-Vue.component('feather-icon', FeatherIcon)
+Vue.component('feather-icon', FeatherIcon);
