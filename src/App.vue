@@ -1,30 +1,15 @@
 <template>
-  <div
-    id="app"
-    class="h-full"
-  >
-    <unsplash-image v-show="settings.useBackground" />
-    <div
-      class="relative z-20 h-full text-base"
-      :style="themeStyle"
-    >
+  <div id="app" class="h-full">
+    <unsplash-image v-show="settings.useBackground"/>
+    <div class="relative z-20 h-full text-base" :style="themeStyle">
       <header class="fixed left-0 right-0 flex justify-between px-5 py-5">
         <div>
-          <date-time v-if="settings.showDate" />
+          <date-time v-if="settings.showDate"/>
         </div>
         <div>
-          <div
-            v-click-outside="() => showSettings = false"
-            class="relative"
-          >
-            <span
-              class="flex items-center cursor-pointer"
-              @click="showSettings = !showSettings"
-            >
-              <feather-icon
-                name="settings"
-                :color="textColor"
-              />
+          <div v-click-outside="() => showSettings = false" class="relative">
+            <span class="flex items-center cursor-pointer" @click="showSettings = !showSettings">
+              <feather-icon name="settings" :color="textColor"/>
             </span>
             <transition name="slide-down">
               <ul
@@ -34,25 +19,25 @@
               >
                 <li class="flex justify-between items-center px-5 py-3 border-gray-800 border-b">
                   <label for="show-date">Show date</label>
-                  <form-switch v-model="settings.showDate" />
+                  <form-switch v-model="settings.showDate"/>
                 </li>
                 <li class="flex justify-between items-center px-5 py-3 border-gray-800 border-b">
                   <label for="use-background">Background image</label>
-                  <form-switch v-model="settings.useBackground" />
+                  <form-switch v-model="settings.useBackground"/>
                 </li>
                 <li
                   v-if="!settings.useBackground"
                   class="flex justify-between items-center px-5 py-3 border-gray-800 border-b"
                 >
                   <label for="color-picker">Select background color</label>
-                  <form-gradient-picker v-model="settings.backgroundColor" />
+                  <form-gradient-picker v-model="settings.backgroundColor"/>
                 </li>
                 <li
                   v-if="!settings.useBackground"
                   class="flex justify-between items-center px-5 py-3 border-gray-800 border-b"
                 >
                   <label for="color-picker">Select text color</label>
-                  <form-color-picker v-model="settings.textColor" />
+                  <form-color-picker v-model="settings.textColor"/>
                 </li>
                 <li class="flex justify-between items-center px-5 py-3 border-gray-800 border-b">
                   <label for="change-verse">Change verse after</label>
@@ -76,11 +61,11 @@
         </div>
       </header>
       <main class="h-full flex flex-col justify-center">
-        <bible :scripture="scripture" />
+        <bible :scripture="scripture"/>
       </main>
       <footer class="fixed left-0 right-0 bottom-0 flex items-center justify-between px-5 py-5">
         <div>
-          <unsplash-image-author v-if="settings.useBackground" />
+          <unsplash-image-author v-if="settings.useBackground"/>
         </div>
       </footer>
     </div>
@@ -238,6 +223,10 @@ body {
   min-height: 100%;
   overflow: hidden;
   background: #fff;
+}
+
+svg {
+  display: inline-block;
 }
 
 .slide-down-enter-active,
