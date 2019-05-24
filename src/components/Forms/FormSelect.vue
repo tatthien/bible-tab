@@ -12,7 +12,7 @@
     >
     <span
       class="absolute top-1/2 right-3"
-      style="margin-top: -9px;"
+      style="margin-top: -14px;"
     >
       <feather-icon
         name="arrow-down"
