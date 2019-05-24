@@ -34,7 +34,7 @@ export default {
       return this.background ? this.background.user.name : '';
     },
     imageLink() {
-      return this.background ? this.background.links.html : '#';
+      return this.background ? this.background.user.links.html : '#';
     },
   },
 };
