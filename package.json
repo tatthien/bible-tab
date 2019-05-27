@@ -1,7 +1,13 @@
 {
-	"name": "bible-tab-v2",
-	"version": "0.1.0",
+	"name": "bible-tab",
+	"version": "2.0",
 	"private": true,
+	"license": "MIT",
+	"author": {
+    "name": "Thien Nguyen",
+    "email": "me@tatthien.com",
+    "url": "https://tatthien.com"
+  },
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
