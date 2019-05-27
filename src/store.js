@@ -39,7 +39,7 @@ export default new Vuex.Store({
     initialize: localStorage.getItem('bibletab_initialize') || false,
     settings: localStorage.getItem('bibletab_settings') ? JSON.parse(localStorage.getItem('bibletab_settings')) : defaultSettings,
     scripture: localStorage.getItem('bibletab_scripture') ? JSON.parse(localStorage.getItem('bibletab_scripture')) : defaultScripture,
-    scriptureIndex: localStorage.getItem('bibletab_scripture_index') || 1,
+    scriptureIndex: parseInt(localStorage.getItem('bibletab_scripture_index'), 10) || 1,
     nextRequest: localStorage.getItem('bibletab_next_request') || null,
     background: localStorage.getItem(`bibletab_background_${today}`) ? JSON.parse(localStorage.getItem(`bibletab_background_${today}`)) : null,
   },
