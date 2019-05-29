@@ -42,7 +42,7 @@ export default [
   'mat',
   'mrk',
   'luk',
-  'jnh',
+  'jhn',
   'act',
   'rom',
   '1co',
