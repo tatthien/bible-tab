@@ -4,7 +4,9 @@
 
 <p align="center">Bible Tab is a browser extension for Chrome and Firefox to show a Bible verse everytime you open a new tab.</p>
 
-<a href="https://www.producthunt.com/posts/bible-tab-v2?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-bible-tab-v2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=157558&theme=light" alt="Bible Tab v2 - A browser extension that show a Bible verse on new tab | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
+<p style="text-align: center;">
+	<a href="https://www.producthunt.com/posts/bible-tab-v2?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-bible-tab-v2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=157558&theme=light" alt="Bible Tab v2 - A browser extension that show a Bible verse on new tab | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
+</p>
 
 ![Screen Shot 2019-05-22 at 8 35 09 PM](https://user-images.githubusercontent.com/3280351/58178859-2d357d00-7cd1-11e9-9137-90c38efd07ff.png)
 
