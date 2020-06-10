@@ -31,8 +31,8 @@ const defaultScripture = {
   ScriptureEn: 'In the beginning God created the heavens and the earth.',
 };
 
-const today = format(new Date(), 'DD-MM-YYYY');
-const yesterday = format(subDays(new Date(), 1), 'DD-MM-YYYY');
+const today = format(new Date(), 'dd-mm-yyyy');
+const yesterday = format(subDays(new Date(), 1), 'dd-mm-yyyy');
 
 export default new Vuex.Store({
   state: {

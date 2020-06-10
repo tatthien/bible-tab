@@ -12,7 +12,7 @@ export default {
   name: 'DateTime',
   computed: {
     date() {
-      return format(new Date(), 'ddd, MMM DD hh:mm A');
+      return format(new Date(), 'E, MMM dd hh:mm a');
     },
   },
 };
