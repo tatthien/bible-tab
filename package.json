@@ -1,0 +1,26 @@
+{
+  "name": "bible-tab",
+  "version": "3.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "lint": "eslint '**/*.{ts,js,vue}'"
+  },
+  "dependencies": {
+    "@heroicons/vue": "^1.0.4",
+    "vue": "^3.2.6"
+  },
+  "devDependencies": {
+    "@tatthien/eslint-config": "0.4.0",
+    "@vitejs/plugin-vue": "^1.6.0",
+    "@vue/compiler-sfc": "^3.2.6",
+    "autoprefixer": "^10.3.4",
+    "eslint": "^7.32.0",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.9",
+    "typescript": "^4.3.2",
+    "vite": "^2.5.2",
+    "vue-tsc": "^0.2.2"
+  }
+}
